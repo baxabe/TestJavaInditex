@@ -13,7 +13,7 @@ public interface PriceEntity {
 
     LocalDateTime getEndDate();
 
-    Integer getPriceList();
+    Long getPriceListId();
 
     Long getProductId();
 
