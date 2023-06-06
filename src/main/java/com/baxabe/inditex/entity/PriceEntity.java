@@ -3,11 +3,11 @@ package com.baxabe.inditex.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public interface Prices {
+public interface PriceEntity {
 
-    Integer getId();
+    Long getId();
 
-    Integer getBrandId();
+    Long getBrandId();
 
     LocalDateTime getStartDate();
 
@@ -15,7 +15,7 @@ public interface Prices {
 
     Integer getPriceList();
 
-    Integer getProductId();
+    Long getProductId();
 
     Integer getPriority();
 
