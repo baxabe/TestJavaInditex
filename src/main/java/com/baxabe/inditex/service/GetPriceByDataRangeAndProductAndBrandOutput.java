@@ -11,11 +11,11 @@ public interface GetPriceByDataRangeAndProductAndBrandOutput {
 
     Long getBrandId();
 
+    void setBrandId(Long brandId);
+
     Long getPriceList();
 
     void setPriceList(Long price);
-
-    void setBrandId(Long brandId);
 
     LocalDateTime getStartDate();
 
