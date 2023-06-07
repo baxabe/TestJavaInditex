@@ -1,8 +1,6 @@
 package com.baxabe.inditex.entity;
 
-public interface BrandEntity {
-
-    Long getId();
+public interface BrandEntity extends BaseEntity {
 
     String getName();
 

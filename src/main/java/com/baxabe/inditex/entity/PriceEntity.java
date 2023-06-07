@@ -3,9 +3,7 @@ package com.baxabe.inditex.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public interface PriceEntity {
-
-    Long getId();
+public interface PriceEntity extends BaseEntity {
 
     Long getBrandId();
 
