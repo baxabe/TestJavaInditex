@@ -1,6 +1,6 @@
 package com.baxabe.inditex.repository;
 
-import com.baxabe.inditex.entity.BrandEntity;
+import com.baxabe.inditex.entity.BrandRwEntity;
 
-public interface BrandReadOnlyRepository extends ReadOnlyRepository<BrandEntity, Long> {
+public interface BrandReadOnlyRepository extends ReadOnlyRepository<BrandRwEntity, Long> {
 }

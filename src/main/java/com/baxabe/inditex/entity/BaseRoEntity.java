@@ -2,7 +2,7 @@ package com.baxabe.inditex.entity;
 
 import java.time.LocalDateTime;
 
-public interface BaseEntity {
+public interface BaseRoEntity {
 
     Long getId();
 
