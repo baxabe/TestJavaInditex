@@ -4,5 +4,5 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 
 @NoRepositoryBean
-public interface ReadOnlyRepository<T, I> extends Repository<T, I> {
+public interface BaseReadOnlyRepository<T, I> extends Repository<T, I> {
 }
