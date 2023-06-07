@@ -1,9 +1,11 @@
 package com.baxabe.inditex.entity;
 
+import com.baxabe.inditex.entity.impl.BrandEntityImpl;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public interface PriceRwEntity extends BaseRoEntity {
+public interface PriceRwEntity extends BaseRwEntity {
 
     Long getBrandId();
 
@@ -11,19 +13,19 @@ public interface PriceRwEntity extends BaseRoEntity {
 
     LocalDateTime getStartDate();
 
-    void setStartDate(LocalDateTime ldt);
+    void setStartDate(LocalDateTime startDate);
 
     LocalDateTime getEndDate();
 
-    void setEndDate(LocalDateTime ldt);
+    void setEndDate(LocalDateTime endDate);
 
     Long getPriceListId();
 
-    void setPriceListId(Long id);
+    void setPriceListId(Long priceListId);
 
     Long getProductId();
 
-    void setProductId(Long id);
+    void setProductId(Long productId);
 
     Integer getPriority();
 
@@ -36,5 +38,9 @@ public interface PriceRwEntity extends BaseRoEntity {
     String getCurrency();
 
     void setCurrency(String currency);
+
+    BrandRoEntity getBrand();
+
+    void setBrand(BrandEntityImpl brand);
 
 }

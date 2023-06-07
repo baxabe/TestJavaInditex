@@ -1,6 +1,6 @@
 package com.baxabe.inditex.entity;
 
-public interface BrandRwEntity extends BaseRoEntity {
+public interface BrandRwEntity extends BaseRwEntity {
 
     String getName();
 

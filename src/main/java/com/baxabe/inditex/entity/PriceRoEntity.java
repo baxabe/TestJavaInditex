@@ -21,4 +21,6 @@ public interface PriceRoEntity extends BaseRoEntity {
 
     String getCurrency();
 
+    BrandRoEntity getBrand();
+
 }
