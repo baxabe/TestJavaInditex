@@ -2,10 +2,7 @@ package com.baxabe.inditex.entity.impl;
 
 import com.baxabe.inditex.entity.BaseRoEntity;
 import com.baxabe.inditex.entity.BaseRwEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +10,7 @@ import java.time.LocalDateTime;
 public abstract class BaseEntityImpl implements BaseRoEntity, BaseRwEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     protected Long id;
 
