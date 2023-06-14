@@ -4,6 +4,7 @@ import com.baxabe.inditex.entity.BrandRoEntity;
 import com.baxabe.inditex.entity.PriceRoEntity;
 import com.baxabe.inditex.entity.PriceRwEntity;
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,28 +13,36 @@ import java.time.LocalDateTime;
 @Table(name = "PRICES")
 public class PriceEntityImpl extends BaseEntityImpl implements PriceRoEntity, PriceRwEntity {
 
-    @Column(name = "BRAND_ID")
+    @NonNull
+    @Column(name = "BRAND_ID", nullable = false)
     protected Long brandId;
 
-    @Column(name = "START_DATE")
+    @NonNull
+    @Column(name = "START_DATE", nullable = false)
     protected LocalDateTime startDate;
 
-    @Column(name = "END_DATE")
+    @NonNull
+    @Column(name = "END_DATE", nullable = false)
     protected LocalDateTime endDate;
 
-    @Column(name = "PRICE_LIST_ID")
+    @NonNull
+    @Column(name = "PRICE_LIST_ID", nullable = false)
     protected Long priceListId;
 
-    @Column(name = "PRODUCT_ID")
+    @NonNull
+    @Column(name = "PRODUCT_ID", nullable = false)
     protected Long productId;
 
-    @Column(name = "PRIORITY")
+    @NonNull
+    @Column(name = "PRIORITY", nullable = false)
     protected Integer priority;
 
-    @Column(name = "PRICE")
+    @NonNull
+    @Column(name = "PRICE", nullable = false)
     protected BigDecimal price;
 
-    @Column(name = "CURRENCY")
+    @NonNull
+    @Column(name = "CURRENCY", nullable = false)
     protected String currency;
 
     @ManyToOne

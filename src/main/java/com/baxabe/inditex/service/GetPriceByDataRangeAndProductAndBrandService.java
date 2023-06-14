@@ -2,11 +2,6 @@ package com.baxabe.inditex.service;
 
 public interface GetPriceByDataRangeAndProductAndBrandService {
 
-    GetPriceByDataRangeAndProductAndBrandInput getInput();
+    GetPriceByDataRangeAndProductAndBrandOutput getPriceByDataRangeAndProductAndBrand(GetPriceByDataRangeAndProductAndBrandInput input);
 
-    void setInput(GetPriceByDataRangeAndProductAndBrandInput input);
-
-    GetPriceByDataRangeAndProductAndBrandOutput getOutput();
-
-    void setOutput(GetPriceByDataRangeAndProductAndBrandOutput output);
 }

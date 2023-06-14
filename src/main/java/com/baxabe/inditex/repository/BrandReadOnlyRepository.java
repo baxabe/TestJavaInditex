@@ -1,6 +1,8 @@
 package com.baxabe.inditex.repository;
 
-import com.baxabe.inditex.entity.BrandRwEntity;
+import com.baxabe.inditex.entity.BrandRoEntity;
+import org.springframework.stereotype.Repository;
 
-public interface BrandReadOnlyRepository extends BaseReadOnlyRepository<BrandRwEntity, Long> {
+@Repository
+public interface BrandReadOnlyRepository extends BaseReadOnlyRepository<BrandRoEntity, Long> {
 }
