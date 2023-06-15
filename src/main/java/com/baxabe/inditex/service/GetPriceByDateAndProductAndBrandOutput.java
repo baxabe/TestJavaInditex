@@ -13,7 +13,7 @@ public interface GetPriceByDateAndProductAndBrandOutput {
 
     void setBrandId(Long brandId);
 
-    Long getPriceList();
+    Long getPriceListId();
 
     void setPriceListId(Long priceListId);
 

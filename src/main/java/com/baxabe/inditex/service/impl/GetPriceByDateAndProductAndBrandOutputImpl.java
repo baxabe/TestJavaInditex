@@ -11,7 +11,7 @@ public class GetPriceByDateAndProductAndBrandOutputImpl implements GetPriceByDat
 
     private Long productId;
     private Long brandId;
-    private Long priceList;
+    private Long priceListId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private BigDecimal price;
@@ -36,14 +36,14 @@ public class GetPriceByDateAndProductAndBrandOutputImpl implements GetPriceByDat
         this.brandId = brandId;
     }
 
-    @JsonProperty("priceList")
-    public Long getPriceList() {
-        return priceList;
+    @JsonProperty("priceListId")
+    public Long getPriceListId() {
+        return priceListId;
     }
 
-    @JsonProperty("priceList")
+    @JsonProperty("priceListId")
     public void setPriceListId(Long priceListId) {
-        this.priceList = priceListId;
+        this.priceListId = priceListId;
     }
 
     @JsonProperty("startDate")
