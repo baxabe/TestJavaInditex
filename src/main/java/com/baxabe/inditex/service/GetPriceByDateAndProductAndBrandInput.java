@@ -2,7 +2,7 @@ package com.baxabe.inditex.service;
 
 import java.time.LocalDateTime;
 
-public interface GetPriceByDataRangeAndProductAndBrandInput {
+public interface GetPriceByDateAndProductAndBrandInput {
 
     LocalDateTime getDate();
 
