@@ -42,8 +42,8 @@ public class GetPriceByDateAndProductAndBrandOutputImpl implements GetPriceByDat
     }
 
     @JsonProperty("priceList")
-    public void setPriceList(Long priceList) {
-        this.priceList = priceList;
+    public void setPriceListId(Long priceListId) {
+        this.priceList = priceListId;
     }
 
     @JsonProperty("startDate")

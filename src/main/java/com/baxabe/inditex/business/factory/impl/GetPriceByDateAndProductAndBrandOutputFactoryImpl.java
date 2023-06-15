@@ -16,7 +16,7 @@ public class GetPriceByDateAndProductAndBrandOutputFactoryImpl implements GetPri
         GetPriceByDateAndProductAndBrandOutput output = new GetPriceByDateAndProductAndBrandOutputImpl();
         output.setProductId(priceRoEntity.getProductId());
         output.setBrandId(priceRoEntity.getBrandId());
-        output.setPriceList(priceRoEntity.getPriceListId());
+        output.setPriceListId(priceRoEntity.getPriceListId());
         output.setStartDate(priceRoEntity.getStartDate());
         output.setEndDate(priceRoEntity.getEndDate());
         output.setPrice(priceRoEntity.getPrice());
