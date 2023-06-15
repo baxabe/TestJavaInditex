@@ -1,13 +1,13 @@
 package com.baxabe.inditex.service.impl;
 
-import com.baxabe.inditex.service.GetPriceByDataRangeAndProductAndBrandOutput;
+import com.baxabe.inditex.service.GetPriceByDateAndProductAndBrandOutput;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class GetPriceByDataRangeAndProductAndBrandOutputImpl implements GetPriceByDataRangeAndProductAndBrandOutput {
+public class GetPriceByDateAndProductAndBrandOutputImpl implements GetPriceByDateAndProductAndBrandOutput {
 
     private Long productId;
     private Long brandId;

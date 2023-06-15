@@ -3,7 +3,7 @@ package com.baxabe.inditex.service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public interface GetPriceByDataRangeAndProductAndBrandOutput {
+public interface GetPriceByDateAndProductAndBrandOutput {
 
     Long getProductId();
 
