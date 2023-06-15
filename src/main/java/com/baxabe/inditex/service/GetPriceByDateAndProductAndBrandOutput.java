@@ -13,9 +13,9 @@ public interface GetPriceByDateAndProductAndBrandOutput {
 
     void setBrandId(Long brandId);
 
-    Long getPriceList();
+    Long getPriceListId();
 
-    void setPriceList(Long price);
+    void setPriceListId(Long priceListId);
 
     LocalDateTime getStartDate();
 
