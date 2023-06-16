@@ -1,0 +1,14 @@
+{
+  "groupId": "com.baxabe.inditex",
+  "artifactId": "TestJava-Inditex",
+  "artifactVersion": "1.0.0",
+  "library": "native",
+  "annotationLibrary": "swagger2",
+  "apiPackage": "com.baxabe.inditex.controller",
+  "developerEmail": "xabier@baxabe.com",
+  "developerName": "Xabier Etxebeste",
+  "invokerPackage": "com.baxabe.inditex",
+  "licenseName": "MIT",
+  "licenseUrl": "https://mit-license.org/",
+  "modelPackage": "com.baxabe.inditex.controller.model"
+}
