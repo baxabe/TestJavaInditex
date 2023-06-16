@@ -1,8 +1,8 @@
-package com.baxabe.inditex.service;
+package com.baxabe.inditex.controller.price.model;
 
 import java.time.LocalDateTime;
 
-public interface GetPriceByDateAndProductAndBrandInput {
+public interface GetPriceByDateInput {
 
     LocalDateTime getDate();
 
