@@ -91,23 +91,28 @@ public class GetPriceByDateOutputImpl implements GetPriceByDateOutput {
         this.price = price;
     }
 
+    @JsonProperty("empty")
     public boolean isEmpty() {
         return isEmpty;
     }
 
+    @JsonProperty("empty")
     public void setEmpty() {
         isEmpty = true;
     }
 
+    @JsonProperty("error")
     public boolean isError() {
         return error;
     }
 
+    @JsonProperty("error")
     public void setError(String msg) {
         error = true;
         errorMsg = msg;
     }
 
+    @JsonProperty("error")
     public String getError() {
         return errorMsg;
     }
