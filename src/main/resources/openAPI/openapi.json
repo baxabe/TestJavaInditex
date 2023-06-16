@@ -21,7 +21,7 @@
             "description": "Date to find price",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/CustomTimeDate"
             }
           },
           {
@@ -85,27 +85,39 @@
         "properties": {
           "productId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Product id",
+            "example": "2"
           },
           "brandId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Brand id",
+            "example": "1"
           },
           "priceListId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Price list id",
+            "example": "1"
           },
           "startDate": {
-            "type": "string"
+            "$ref": "#/components/schemas/CustomTimeDate"
           },
           "endDate": {
-            "type": "string"
+            "$ref": "#/components/schemas/CustomTimeDate"
           },
           "price": {
             "type": "integer",
             "format": "int64"
           }
         }
+      },
+      "CustomTimeDate": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])-([01][0-9]|2[0-3](.[0-5][0-9]){2})$",
+        "example": "2023-05-13-17.30.02",
+        "description": "Date formatted as example"
       },
       "Error": {
         "type": "object",
