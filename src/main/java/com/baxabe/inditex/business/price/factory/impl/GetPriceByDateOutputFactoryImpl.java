@@ -1,16 +1,23 @@
-package com.baxabe.inditex.business.factory.impl;
+package com.baxabe.inditex.business.price.factory.impl;
 
-import com.baxabe.inditex.business.factory.GetPriceByDateOutputFactory;
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
-import com.baxabe.inditex.controller.price.model.impl.GetPriceByDateOutputImpl;
+import com.baxabe.inditex.business.price.factory.GetPriceByDateOutputFactory;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.model.impl.GetPriceByDateOutputImpl;
 import com.baxabe.inditex.entity.PriceRoEntity;
 
 public class GetPriceByDateOutputFactoryImpl implements GetPriceByDateOutputFactory {
 
     public GetPriceByDateOutput buildEmptyPriceOutput() {
-        return new GetPriceByDateOutputImpl();
+        GetPriceByDateOutput output = new GetPriceByDateOutputImpl();
+        output.setEmpty();
+        return output;
     }
 
+    public GetPriceByDateOutput buildErrorPriceOutput(String err) {
+        GetPriceByDateOutput output = new GetPriceByDateOutputImpl();
+        output.setError(err);
+        return output;
+    }
 
     public GetPriceByDateOutput buildPriceOutput(PriceRoEntity priceRoEntity) {
         GetPriceByDateOutput output = new GetPriceByDateOutputImpl();

@@ -1,7 +1,7 @@
-package com.baxabe.inditex.business.impl;
+package com.baxabe.inditex.business.price.impl;
 
-import com.baxabe.inditex.business.factory.GetPriceByDateOutputFactory;
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.factory.GetPriceByDateOutputFactory;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.baxabe.inditex.entity.PriceRoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

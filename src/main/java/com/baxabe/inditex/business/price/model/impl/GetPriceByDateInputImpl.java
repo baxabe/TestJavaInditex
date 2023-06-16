@@ -1,6 +1,6 @@
-package com.baxabe.inditex.controller.price.model.impl;
+package com.baxabe.inditex.business.price.model.impl;
 
-import com.baxabe.inditex.controller.price.model.GetPriceByDateInput;
+import com.baxabe.inditex.business.price.model.GetPriceByDateInput;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

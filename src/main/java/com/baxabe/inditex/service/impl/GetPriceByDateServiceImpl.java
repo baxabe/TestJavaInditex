@@ -1,8 +1,8 @@
 package com.baxabe.inditex.service.impl;
 
-import com.baxabe.inditex.business.PriceBusiness;
-import com.baxabe.inditex.controller.price.model.GetPriceByDateInput;
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.PriceBusiness;
+import com.baxabe.inditex.business.price.model.GetPriceByDateInput;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.baxabe.inditex.entity.PriceRoEntity;
 import com.baxabe.inditex.repository.PriceReadOnlyRepository;
 import com.baxabe.inditex.service.GetPriceByDateService;
@@ -25,7 +25,7 @@ public class GetPriceByDateServiceImpl implements GetPriceByDateService {
         this.priceBusiness = priceBusiness;
     }
 
-    public GetPriceByDateOutput getPriceByDateAndProductAndBrand(GetPriceByDateInput input) {
+    public GetPriceByDateOutput getPriceByDate(GetPriceByDateInput input) {
         List<PriceRoEntity> candidates = repository.findByStartDateIsBeforeAndEndDateIsAfterAndProductIdAndBrandIdOrderByPriorityDesc(
                 input.getDate(), input.getDate(), input.getProductId(), input.getBrandId()
         );
