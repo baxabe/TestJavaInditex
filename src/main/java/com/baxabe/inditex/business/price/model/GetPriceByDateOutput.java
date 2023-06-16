@@ -1,4 +1,4 @@
-package com.baxabe.inditex.controller.price.model;
+package com.baxabe.inditex.business.price.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -28,5 +28,15 @@ public interface GetPriceByDateOutput {
     BigDecimal getPrice();
 
     void setPrice(BigDecimal price);
+
+    boolean isEmpty();
+
+    void setEmpty();
+
+    boolean isError();
+
+    void setError(String msg);
+
+    String getError();
 
 }

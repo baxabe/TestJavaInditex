@@ -1,4 +1,4 @@
-package com.baxabe.inditex.controller.price.model;
+package com.baxabe.inditex.business.price.model;
 
 import java.time.LocalDateTime;
 

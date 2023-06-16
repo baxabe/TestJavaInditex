@@ -1,6 +1,6 @@
-package com.baxabe.inditex.controller.price.model.impl;
+package com.baxabe.inditex.business.price.model.impl;
 
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,6 +15,9 @@ public class GetPriceByDateOutputImpl implements GetPriceByDateOutput {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private BigDecimal price;
+    private boolean isEmpty;
+    private boolean error;
+    private String errorMsg;
 
     @JsonProperty("productId")
     public Long getProductId() {
@@ -86,6 +89,27 @@ public class GetPriceByDateOutputImpl implements GetPriceByDateOutput {
     @JsonProperty("price")
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty() {
+        isEmpty = true;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(String msg) {
+        error = true;
+        errorMsg = msg;
+    }
+
+    public String getError() {
+        return errorMsg;
     }
 
 }

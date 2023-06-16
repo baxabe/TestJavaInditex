@@ -1,6 +1,6 @@
-package com.baxabe.inditex.business.factory;
+package com.baxabe.inditex.business.price.factory;
 
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.baxabe.inditex.entity.PriceRoEntity;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 public interface GetPriceByDateOutputFactory {
 
     GetPriceByDateOutput buildEmptyPriceOutput();
+
+    GetPriceByDateOutput buildErrorPriceOutput(String err);
 
     GetPriceByDateOutput buildPriceOutput(PriceRoEntity priceRoEntity);
 

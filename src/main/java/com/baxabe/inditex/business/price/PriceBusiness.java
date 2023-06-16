@@ -1,6 +1,6 @@
-package com.baxabe.inditex.business;
+package com.baxabe.inditex.business.price;
 
-import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
+import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.baxabe.inditex.entity.PriceRoEntity;
 import org.springframework.stereotype.Component;
 
