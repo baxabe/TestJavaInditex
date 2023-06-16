@@ -20,7 +20,7 @@ public class PriceBusinessImpl {
 
     public GetPriceByDateOutput getPriceFromCandidatesList(List<PriceRoEntity> candidates) {
         GetPriceByDateOutput result;
-        if (candidates.size() == 1) {
+        if (candidates.size() > 0) {
             result = factory.buildPriceOutput(candidates.get(0));
         } else {
             result = factory.buildEmptyPriceOutput();
