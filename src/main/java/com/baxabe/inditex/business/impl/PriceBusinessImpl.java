@@ -1,8 +1,8 @@
 package com.baxabe.inditex.business.impl;
 
-import com.baxabe.inditex.business.factory.GetPriceByDateAndProductAndBrandOutputFactory;
+import com.baxabe.inditex.business.factory.GetPriceByDateOutputFactory;
+import com.baxabe.inditex.controller.price.model.GetPriceByDateOutput;
 import com.baxabe.inditex.entity.PriceRoEntity;
-import com.baxabe.inditex.service.GetPriceByDateAndProductAndBrandOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,15 +11,15 @@ import java.util.List;
 @Component
 public class PriceBusinessImpl {
 
-    private final GetPriceByDateAndProductAndBrandOutputFactory factory;
+    private final GetPriceByDateOutputFactory factory;
 
     @Autowired
-    PriceBusinessImpl(GetPriceByDateAndProductAndBrandOutputFactory factory) {
+    PriceBusinessImpl(GetPriceByDateOutputFactory factory) {
         this.factory = factory;
     }
 
-    public GetPriceByDateAndProductAndBrandOutput getPriceFromCandidatesList(List<PriceRoEntity> candidates) {
-        GetPriceByDateAndProductAndBrandOutput result;
+    public GetPriceByDateOutput getPriceFromCandidatesList(List<PriceRoEntity> candidates) {
+        GetPriceByDateOutput result;
         if (candidates.size() == 1) {
             result = factory.buildPriceOutput(candidates.get(0));
         } else {

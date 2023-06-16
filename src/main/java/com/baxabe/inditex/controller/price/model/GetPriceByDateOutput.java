@@ -1,9 +1,9 @@
-package com.baxabe.inditex.service;
+package com.baxabe.inditex.controller.price.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public interface GetPriceByDateAndProductAndBrandOutput {
+public interface GetPriceByDateOutput {
 
     Long getProductId();
 
