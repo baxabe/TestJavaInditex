@@ -1,120 +1,119 @@
 package com.baxabe.inditex.business.price.model.impl;
 
+import com.baxabe.inditex.business.model.impl.BaseModelImpl;
 import com.baxabe.inditex.business.price.model.GetPriceByDateOutput;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
-public class GetPriceByDateOutputImpl implements GetPriceByDateOutput {
-
-    private Long productId;
-    private Long brandId;
-    private Long priceListId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private BigDecimal price;
-    private boolean isEmpty;
-    private boolean error;
-    private String errorMsg;
-
-    @JsonProperty("productId")
-    public Long getProductId() {
-        return productId;
-    }
-
-    @JsonProperty("productId")
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+public class GetPriceByDateOutputImpl extends BaseModelImpl implements GetPriceByDateOutput {
 
     @JsonProperty("brandId")
+    private Long brandId;
+    @JsonProperty("priceListId")
+    private Long priceListId;
+    @JsonProperty("productId")
+    private Long productId;
+    @JsonProperty("price")
+    private BigDecimal price;
+    @JsonProperty("startDate")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = INDITEX_DATE_PATTERN, timezone = INDITEX_DATE_TIMEZONE)
+    private Date startDate;
+    @JsonProperty("endDate")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = INDITEX_DATE_PATTERN, timezone = INDITEX_DATE_TIMEZONE)
+    private Date endDate;
+    @JsonProperty("brandName")
+    private String brandName;
+    @JsonProperty("priceListName")
+    private String priceListName;
+    @JsonProperty("productName")
+    private String productName;
+
     public Long getBrandId() {
         return brandId;
     }
 
-    @JsonProperty("brandId")
     public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }
 
-    @JsonProperty("priceListId")
     public Long getPriceListId() {
         return priceListId;
     }
 
-    @JsonProperty("priceListId")
     public void setPriceListId(Long priceListId) {
         this.priceListId = priceListId;
     }
 
-    @JsonProperty("startDate")
-    @JsonFormat(
-            shape = JsonFormat.Shape.STRING,
-            pattern = "yyyy-MM-dd-hh.mm.ss")
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public Long getProductId() {
+        return productId;
     }
 
-    @JsonProperty("startDate")
-    @JsonFormat(
-            shape = JsonFormat.Shape.STRING,
-            pattern = "yyyy-MM-dd-hh.mm.ss")
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
-    @JsonProperty("endDate")
-    @JsonFormat(
-            shape = JsonFormat.Shape.STRING,
-            pattern = "yyyy-MM-dd-hh.mm.ss")
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    @JsonProperty("endDate")
-    @JsonFormat(
-            shape = JsonFormat.Shape.STRING,
-            pattern = "yyyy-MM-dd-hh.mm.ss")
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    @JsonProperty("price")
     public BigDecimal getPrice() {
         return price;
     }
 
-    @JsonProperty("price")
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    @JsonProperty("empty")
-    public boolean isEmpty() {
-        return isEmpty;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    @JsonProperty("empty")
-    public void setEmpty() {
-        isEmpty = true;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    @JsonProperty("error")
-    public boolean isError() {
-        return error;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    @JsonProperty("error")
-    public void setError(String msg) {
-        error = true;
-        errorMsg = msg;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
-    @JsonProperty("error")
-    public String getError() {
-        return errorMsg;
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public String getPriceListName() {
+        return priceListName;
+    }
+
+    public void setPriceListName(String priceListName) {
+        this.priceListName = priceListName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    @Override
+    protected boolean checkHasAllData() {
+        return getProductId() != null &&
+                !getProductName().isEmpty() &&
+                getBrandId() != null &&
+                !getBrandName().isEmpty() &&
+                getPriceListId() != null &&
+                !getPriceListName().isEmpty() &&
+                getStartDate() != null &&
+                getEndDate() != null &&
+                getPrice() != null;
     }
 
 }

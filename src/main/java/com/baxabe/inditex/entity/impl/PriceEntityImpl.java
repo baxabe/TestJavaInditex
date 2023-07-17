@@ -1,29 +1,29 @@
 package com.baxabe.inditex.entity.impl;
 
-import com.baxabe.inditex.entity.BrandRoEntity;
-import com.baxabe.inditex.entity.PriceRoEntity;
-import com.baxabe.inditex.entity.PriceRwEntity;
+import com.baxabe.inditex.entity.BrandEntity;
+import com.baxabe.inditex.entity.PriceEntity;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "PRICES")
-public class PriceEntityImpl extends BaseEntityImpl implements PriceRoEntity, PriceRwEntity {
+public class PriceEntityImpl extends BaseEntityImpl implements PriceEntity {
 
     @NonNull
-    @Column(name = "BRAND_ID", nullable = false)
-    protected Long brandId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BRAND_ID", nullable = false)
+    protected BrandEntityImpl brand;
 
     @NonNull
     @Column(name = "START_DATE", nullable = false)
-    protected LocalDateTime startDate;
+    protected Date startDate;
 
     @NonNull
     @Column(name = "END_DATE", nullable = false)
-    protected LocalDateTime endDate;
+    protected Date endDate;
 
     @NonNull
     @Column(name = "PRICE_LIST_ID", nullable = false)
@@ -45,80 +45,76 @@ public class PriceEntityImpl extends BaseEntityImpl implements PriceRoEntity, Pr
     @Column(name = "CURRENCY", nullable = false)
     protected String currency;
 
-    @ManyToOne
-    @JoinColumn(name = "BRAND_ID")
-    protected BrandEntityImpl brand;
-
-    public Long getBrandId() {
-        return brandId;
+    @NonNull
+    public BrandEntity getBrand() {
+        return (BrandEntity) brand;
     }
 
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
+    public void setBrand(@NonNull BrandEntity brand) {
+        this.brand = (BrandEntityImpl) brand;
     }
 
-    public LocalDateTime getStartDate() {
+    @NonNull
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(@NonNull Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    @NonNull
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(@NonNull Date endDate) {
         this.endDate = endDate;
     }
 
+    @NonNull
     public Long getPriceListId() {
         return priceListId;
     }
 
-    public void setPriceListId(Long priceListId) {
+    public void setPriceListId(@NonNull Long priceListId) {
         this.priceListId = priceListId;
     }
 
+    @NonNull
     public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Long productId) {
+    public void setProductId(@NonNull Long productId) {
         this.productId = productId;
     }
 
+    @NonNull
     public Integer getPriority() {
         return priority;
     }
 
-    public void setPriority(Integer priority) {
+    public void setPriority(@NonNull Integer priority) {
         this.priority = priority;
     }
 
+    @NonNull
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(@NonNull BigDecimal price) {
         this.price = price;
     }
 
+    @NonNull
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(@NonNull String currency) {
         this.currency = currency;
-    }
-
-    public BrandRoEntity getBrand() {
-        return brand;
-    }
-
-    public void setBrand(BrandEntityImpl brand) {
-        this.brand = brand;
     }
 
 }

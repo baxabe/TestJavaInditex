@@ -1,9 +1,16 @@
 package com.baxabe.inditex.repository;
 
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 
+import java.io.Serializable;
+import java.util.Optional;
+
 @NoRepositoryBean
-public interface BaseReadOnlyRepository<T, I> extends Repository<T, I>, QuerydslPredicateExecutor<T> {
+@SuppressWarnings("java:S119")
+public interface BaseReadOnlyRepository<T, ID extends Serializable> extends Repository<T, ID> {
+
+    // This is never used in project. Provided as example.
+    Optional<T> findById(ID id);
+
 }
