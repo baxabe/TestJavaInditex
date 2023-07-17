@@ -1,60 +1,65 @@
 package com.baxabe.inditex.entity.impl;
 
-import com.baxabe.inditex.entity.BaseRoEntity;
-import com.baxabe.inditex.entity.BaseRwEntity;
+import com.baxabe.inditex.entity.BaseEntity;
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @MappedSuperclass
-public abstract class BaseEntityImpl implements BaseRoEntity, BaseRwEntity {
+public class BaseEntityImpl implements BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "ID", insertable = false, updatable = false)
     protected Long id;
 
     @Column(name = "CREATED_AT")
-    protected LocalDateTime createdAt;
+    protected Date createdAt;
 
     @Column(name = "UPDATED_AT")
-    protected LocalDateTime updatedAt;
+    protected Date updatedAt;
 
     @Column(name = "DELETED_AT")
-    protected LocalDateTime deletedAt;
+    protected Date deletedAt;
 
+    @NonNull
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(@NonNull Long id) {
         this.id = id;
     }
 
-    public LocalDateTime getCreatedAt() {
+    @NonNull
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime ldt) {
+    public void setCreatedAt(@NonNull Date ldt) {
         createdAt = ldt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    @NonNull
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime ldt) {
+    public void setUpdatedAt(@NonNull Date ldt) {
         updatedAt = ldt;
     }
 
-    public LocalDateTime getDeletedAt() {
+    @NonNull
+    public Date getDeletedAt() {
         return deletedAt;
     }
 
-    public void setDeletedAt(LocalDateTime ldt) {
+    public void setDeletedAt(@NonNull Date ldt) {
         deletedAt = ldt;
     }
 
+    @NonNull
     public Boolean isDeleted() {
         return deletedAt != null;
     }

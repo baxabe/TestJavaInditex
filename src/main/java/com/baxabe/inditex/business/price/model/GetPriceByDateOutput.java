@@ -1,42 +1,46 @@
 package com.baxabe.inditex.business.price.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import com.baxabe.inditex.business.model.BaseModel;
 
-public interface GetPriceByDateOutput {
+import java.math.BigDecimal;
+import java.util.Date;
+
+public interface GetPriceByDateOutput extends BaseModel {
 
     Long getProductId();
 
     void setProductId(Long productId);
 
+    String getProductName();
+
+    void setProductName(String productName);
+
     Long getBrandId();
 
     void setBrandId(Long brandId);
+
+    String getBrandName();
+
+    void setBrandName(String brandName);
 
     Long getPriceListId();
 
     void setPriceListId(Long priceListId);
 
-    LocalDateTime getStartDate();
+    String getPriceListName();
 
-    void setStartDate(LocalDateTime startDate);
-
-    LocalDateTime getEndDate();
-
-    void setEndDate(LocalDateTime endDate);
+    void setPriceListName(String priceListName);
 
     BigDecimal getPrice();
 
     void setPrice(BigDecimal price);
 
-    boolean isEmpty();
+    Date getStartDate();
 
-    void setEmpty();
+    void setStartDate(Date startDate);
 
-    boolean isError();
+    Date getEndDate();
 
-    void setError(String msg);
-
-    String getError();
+    void setEndDate(Date endDate);
 
 }

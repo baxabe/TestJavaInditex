@@ -1,19 +1,23 @@
 package com.baxabe.inditex.business.price.model;
 
-import java.time.LocalDateTime;
+import com.baxabe.inditex.business.model.BaseModel;
 
-public interface GetPriceByDateInput {
+import java.util.Date;
 
-    LocalDateTime getDate();
+public interface GetPriceByDateInput extends BaseModel {
 
-    void setDate(LocalDateTime date);
+    Date getDate();
+
+    void setDate(Date date);
 
     Long getProductId();
 
+    // This is never used in project. Provided as example.
     void setProductId(Long productId);
 
     Long getBrandId();
 
+    // This is never used in project. Provided as example.
     void setBrandId(Long brandId);
 
 }
