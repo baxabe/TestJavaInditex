@@ -16,6 +16,10 @@ import java.util.Date;
 public class PriceByDateViewImpl extends BaseViewImpl implements PriceByDateView {
 
     @NonNull
+    @Column(name = "PRICE_ID", insertable = false, updatable = false)
+    protected Long priceId;
+
+    @NonNull
     @Column(name = "BRAND_ID", insertable = false, updatable = false)
     protected Long brandId;
 
@@ -52,8 +56,13 @@ public class PriceByDateViewImpl extends BaseViewImpl implements PriceByDateView
     protected String productName;
 
     @NonNull
+    public Long getPriceId() {
+        return priceId;
+    }
+
+    @NonNull
     public Long getBrandId() {
-        return id;
+        return brandId;
     }
 
     @NonNull

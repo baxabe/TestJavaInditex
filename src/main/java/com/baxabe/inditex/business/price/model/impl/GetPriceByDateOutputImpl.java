@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class GetPriceByDateOutputImpl extends BaseModelImpl implements GetPriceByDateOutput {
 
+    @JsonProperty("priceId")
+    private Long priceId;
     @JsonProperty("brandId")
     private Long brandId;
     @JsonProperty("priceListId")
@@ -30,6 +32,14 @@ public class GetPriceByDateOutputImpl extends BaseModelImpl implements GetPriceB
     private String priceListName;
     @JsonProperty("productName")
     private String productName;
+
+    public Long getPriceId() {
+        return priceId;
+    }
+
+    public void setPriceId(Long priceId) {
+        this.priceId = priceId;
+    }
 
     public Long getBrandId() {
         return brandId;
@@ -109,6 +119,7 @@ public class GetPriceByDateOutputImpl extends BaseModelImpl implements GetPriceB
                 !getProductName().isEmpty() &&
                 getBrandId() != null &&
                 !getBrandName().isEmpty() &&
+                getPriceId() != null &&
                 getPriceListId() != null &&
                 !getPriceListName().isEmpty() &&
                 getStartDate() != null &&

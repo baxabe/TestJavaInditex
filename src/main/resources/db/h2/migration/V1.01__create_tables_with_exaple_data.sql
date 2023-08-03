@@ -9,11 +9,12 @@ CREATE TABLE IF NOT EXISTS BRANDS
     PRIMARY KEY (ID)
 );
 
-INSERT INTO BRANDS (ID,
-                    NAME,
-                    CREATED_AT,
-                    UPDATED_AT,
-                    DELETED_AT)
+INSERT INTO BRANDS
+(ID,
+ NAME,
+ CREATED_AT,
+ UPDATED_AT,
+ DELETED_AT)
 VALUES (1,
         'ZARA',
         '2020-01-01 00:00:00.000',
@@ -32,11 +33,12 @@ CREATE TABLE IF NOT EXISTS PRICES_LIST
     PRIMARY KEY (ID)
 );
 
-INSERT INTO PRICES_LIST (ID,
-                         NAME,
-                         CREATED_AT,
-                         UPDATED_AT,
-                         DELETED_AT)
+INSERT INTO PRICES_LIST
+(ID,
+ NAME,
+ CREATED_AT,
+ UPDATED_AT,
+ DELETED_AT)
 VALUES (1,
         'Rebajas invierno',
         '2020-01-01 00:00:00.000',
@@ -70,11 +72,12 @@ CREATE TABLE IF NOT EXISTS PRODUCTS
     PRIMARY KEY (ID)
 );
 
-INSERT INTO PRODUCTS (ID,
-                      NAME,
-                      CREATED_AT,
-                      UPDATED_AT,
-                      DELETED_AT)
+INSERT INTO PRODUCTS
+(ID,
+ NAME,
+ CREATED_AT,
+ UPDATED_AT,
+ DELETED_AT)
 VALUES (35455,
         'Camiseta sport unisex',
         '2020-01-01 00:00:00.000',
@@ -103,17 +106,18 @@ CREATE TABLE IF NOT EXISTS PRICES
     FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCTS (ID)
 );
 
-INSERT INTO PRICES (BRAND_ID,
-                    START_DATE,
-                    END_DATE,
-                    PRICE_LIST_ID,
-                    PRODUCT_ID,
-                    PRIORITY,
-                    PRICE,
-                    CURRENCY,
-                    CREATED_AT,
-                    UPDATED_AT,
-                    DELETED_AT)
+INSERT INTO PRICES
+(BRAND_ID,
+ START_DATE,
+ END_DATE,
+ PRICE_LIST_ID,
+ PRODUCT_ID,
+ PRIORITY,
+ PRICE,
+ CURRENCY,
+ CREATED_AT,
+ UPDATED_AT,
+ DELETED_AT)
 VALUES (1,
         '2020-06-14 00:00:00.000',
         '2020-12-31 23:59:59.000',
@@ -162,22 +166,23 @@ VALUES (1,
 
 -- START of <<PRICES_BY_DATE VIEW>> creation
 CREATE VIEW IF NOT EXISTS PRICES_BY_DATE AS
-SELECT PRICES.ID            AS ID,
-       PRICES.BRAND_ID      AS BRAND_ID,
-       PRICES.PRICE_LIST_ID AS PRICE_LIST_ID,
-       PRICES.PRODUCT_ID    AS PRODUCT_ID,
-       PRICES.PRICE         AS PRICE,
-       PRICES.START_DATE    AS START_DATE,
-       PRICES.END_DATE      AS END_DATE,
-       B.NAME               AS BRAND_NAME,
-       PL.NAME              AS PRICE_LIST_NAME,
-       P2.NAME              AS PRODUCT_NAME
+SELECT PRICES.ID         AS ID,       -- Java needs an ID field and it isn't needed by a view.
+       PRICES.ID         AS PRICE_ID, -- This field name correlates with app.
+       BRANDS.ID         AS BRAND_ID,
+       PRICES_LIST.ID    AS PRICE_LIST_ID,
+       PRODUCTS.ID       AS PRODUCT_ID,
+       PRICES.PRICE      AS PRICE,
+       PRICES.START_DATE AS START_DATE,
+       PRICES.END_DATE   AS END_DATE,
+       BRANDS.NAME       AS BRAND_NAME,
+       PRICES_LIST.NAME  AS PRICE_LIST_NAME,
+       PRODUCTS.NAME     AS PRODUCT_NAME
 FROM PRICES
-         JOIN BRANDS B on
-    B.ID = PRICES.BRAND_ID
-         JOIN PRICES_LIST PL on
-    PL.ID = PRICES.PRICE_LIST_ID
-         JOIN PRODUCTS P2
-              on P2.ID = PRICES.PRODUCT_ID
+         JOIN BRANDS
+              ON PRICES.BRAND_ID = BRANDS.ID
+         JOIN PRICES_LIST
+              ON PRICES.PRICE_LIST_ID = PRICES_LIST.ID
+         JOIN PRODUCTS
+              ON PRICES.PRODUCT_ID = PRODUCTS.ID
 ORDER BY PRICES.PRIORITY DESC;
 -- END of >>PRICES_BY_DATE VIEW<< creation

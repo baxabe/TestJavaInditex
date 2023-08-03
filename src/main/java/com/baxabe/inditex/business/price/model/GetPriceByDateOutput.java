@@ -31,6 +31,10 @@ public interface GetPriceByDateOutput extends BaseModel {
 
     void setPriceListName(String priceListName);
 
+    Long getPriceId();
+
+    void setPriceId(Long priceId);
+
     BigDecimal getPrice();
 
     void setPrice(BigDecimal price);

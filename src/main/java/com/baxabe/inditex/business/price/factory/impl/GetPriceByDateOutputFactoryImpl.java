@@ -24,6 +24,7 @@ public class GetPriceByDateOutputFactoryImpl implements GetPriceByDateOutputFact
         output.setBrandId(priceEntity.getBrandId());
         output.setPriceListId(priceEntity.getPriceListId());
         output.setProductId(priceEntity.getProductId());
+        output.setPriceId(priceEntity.getPriceId());
         output.setPrice(priceEntity.getPrice());
         output.setStartDate(priceEntity.getStartDate());
         output.setEndDate(priceEntity.getEndDate());

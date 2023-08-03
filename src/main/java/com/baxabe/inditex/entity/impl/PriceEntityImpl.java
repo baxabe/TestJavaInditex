@@ -2,6 +2,8 @@ package com.baxabe.inditex.entity.impl;
 
 import com.baxabe.inditex.entity.BrandEntity;
 import com.baxabe.inditex.entity.PriceEntity;
+import com.baxabe.inditex.entity.PriceListEntity;
+import com.baxabe.inditex.entity.ProductEntity;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
@@ -26,12 +28,14 @@ public class PriceEntityImpl extends BaseEntityImpl implements PriceEntity {
     protected Date endDate;
 
     @NonNull
-    @Column(name = "PRICE_LIST_ID", nullable = false)
-    protected Long priceListId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRICE_LIST_ID", nullable = false)
+    protected PriceListEntityImpl priceList;
 
     @NonNull
-    @Column(name = "PRODUCT_ID", nullable = false)
-    protected Long productId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID", nullable = false)
+    protected ProductEntityImpl product;
 
     @NonNull
     @Column(name = "PRIORITY", nullable = false)
@@ -47,7 +51,7 @@ public class PriceEntityImpl extends BaseEntityImpl implements PriceEntity {
 
     @NonNull
     public BrandEntity getBrand() {
-        return (BrandEntity) brand;
+        return brand;
     }
 
     public void setBrand(@NonNull BrandEntity brand) {
@@ -73,21 +77,21 @@ public class PriceEntityImpl extends BaseEntityImpl implements PriceEntity {
     }
 
     @NonNull
-    public Long getPriceListId() {
-        return priceListId;
+    public PriceListEntity getPriceList() {
+        return priceList;
     }
 
-    public void setPriceListId(@NonNull Long priceListId) {
-        this.priceListId = priceListId;
+    public void setPriceList(@NonNull PriceListEntity priceList) {
+        this.priceList = (PriceListEntityImpl) priceList;
     }
 
     @NonNull
-    public Long getProductId() {
-        return productId;
+    public ProductEntity getProduct() {
+        return product;
     }
 
-    public void setProductId(@NonNull Long productId) {
-        this.productId = productId;
+    public void setProduct(@NonNull ProductEntity product) {
+        this.product = (ProductEntityImpl) product;
     }
 
     @NonNull

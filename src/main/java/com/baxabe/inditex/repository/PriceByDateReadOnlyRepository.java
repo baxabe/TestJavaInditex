@@ -14,12 +14,13 @@ public interface PriceByDateReadOnlyRepository extends BaseReadOnlyRepository<Pr
 
     @Query(
             """
-                            SELECT pbd
-                            FROM PriceByDateViewImpl pbd
-                            WHERE pbd.startDate <= :#{#date} AND
-                                  pbd.endDate >= :#{#date} AND
-                                  pbd.productId = :#{#productId} AND
-                                  pbd.brandId = :#{#brandId}
+                        SELECT pbd
+                        FROM PriceByDateViewImpl pbd
+                        WHERE
+                            pbd.startDate <= :#{#date} AND
+                            pbd.endDate >= :#{#date} AND
+                            pbd.productId = :#{#productId} AND
+                            pbd.brandId = :#{#brandId}
                     """
     )
     List<PriceByDateView> findByDate(

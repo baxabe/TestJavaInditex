@@ -7,6 +7,9 @@ import java.util.Date;
 
 public interface PriceByDateView extends BaseView {
     @NonNull
+    Long getPriceId();
+
+    @NonNull
     Long getBrandId();
 
     @NonNull

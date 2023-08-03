@@ -30,16 +30,16 @@ public interface PriceEntity extends BaseEntity {
 
     // This is never used in project. Provided as example.
     @NonNull
-    Long getPriceListId();
+    PriceListEntity getPriceList();
 
     // This is never used in project. Provided as example.
-    void setPriceListId(@NonNull Long priceListId);
+    void setPriceList(@NonNull PriceListEntity priceList);
 
     @NonNull
-    Long getProductId();
+    ProductEntity getProduct();
 
     // This is never used in project. Provided as example.
-    void setProductId(@NonNull Long productId);
+    void setProduct(@NonNull ProductEntity product);
 
     // This is never used in project. Provided as example.
     @NonNull

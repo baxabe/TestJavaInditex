@@ -1,14 +1,14 @@
 package com.baxabe.inditex.entity.impl;
 
-import com.baxabe.inditex.entity.BrandEntity;
+import com.baxabe.inditex.entity.PriceListEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "BRANDS")
-public class BrandEntityImpl extends BaseEntityImpl implements BrandEntity {
+@Table(name = "PRICES_LIST")
+public class PriceListEntityImpl extends BaseEntityImpl implements PriceListEntity {
 
     @NonNull
     @Column(name = "NAME", nullable = false)

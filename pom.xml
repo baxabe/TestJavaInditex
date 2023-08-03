@@ -7,16 +7,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.baxabe</groupId>
-    <artifactId>TestJava-Inditex</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>TestJavaInditex</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
-    <name>TestJava-Inditex</name>
+    <name>TestJavaInditex</name>
     <description>TestJava app for Inditex application</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version> <!-- lookup parent from repository -->
+        <version>3.1.2</version> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -24,18 +24,16 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
         <yaml.version>2.0</yaml.version>
-        <springframework.boot.version>3.1.1</springframework.boot.version>
+        <springframework.boot.version>3.1.2</springframework.boot.version>
         <fasterxml.jackson.datatype.version>2.15.2</fasterxml.jackson.datatype.version>
         <h2database.version>2.1.214</h2database.version>
+        <hibernate.orm.version>6.2.7.Final</hibernate.orm.version>
+        <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
+        <flywaydb.version>9.21.0</flywaydb.version>
         <springdoc.version>1.7.0</springdoc.version>
-        <hibernate.orm.version>6.2.5.Final</hibernate.orm.version>
-        <hibernate.validator.version>8.0.0.Final</hibernate.validator.version>
-        <junit.version>4.13.2</junit.version>
-        <logstash-logback.version>4.9</logstash-logback.version>
-
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+        <logstash-logback.version>7.4</logstash-logback.version>
         <springframework.cloud.version>2022.0.3</springframework.cloud.version>
-        <flywaydb.version>9.19.4</flywaydb.version>
-        <flyway.url>jdbc:h2:mem:testdb</flyway.url>
     </properties>
 
     <dependencies>
@@ -64,11 +62,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
             <version>${springframework.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>9.19.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -102,16 +95,6 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>${logstash-logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.orm.version}</version>
@@ -122,9 +105,24 @@
             <version>${hibernate.validator.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flywaydb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash-logback.version}</version>
         </dependency>
     </dependencies>
 
@@ -158,16 +156,6 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flywaydb.version}</version>
-                <configuration>
-                    <driver>org.h2.Driver</driver>
-                    <url>${flyway.url}</url>
-                    <schemas>
-                        <schema>public</schema>
-                    </schemas>
-                    <locations>
-                        <location>classpath:/db/migration/h2</location>
-                    </locations>
-                </configuration>
             </plugin>
         </plugins>
     </build>

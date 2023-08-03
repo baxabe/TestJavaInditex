@@ -9,14 +9,18 @@ import java.util.Date;
 
 public class GetPriceByDateInputImpl extends BaseModelImpl implements GetPriceByDateInput {
 
-    @JsonProperty("date")
+    public static final String JSON_PROPERTY_DATE_TAG = "date";
+    public static final String JSON_PROPERTY_PRODUCT_ID_TAG = "productId";
+    public static final String JSON_PROPERTY_BRAND_ID_TAG = "brandId";
+
+    @JsonProperty(JSON_PROPERTY_DATE_TAG)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = INDITEX_DATE_PATTERN, timezone = INDITEX_DATE_TIMEZONE)
     private Date date;
 
-    @JsonProperty("productId")
+    @JsonProperty(JSON_PROPERTY_PRODUCT_ID_TAG)
     private Long productId;
 
-    @JsonProperty("brandId")
+    @JsonProperty(JSON_PROPERTY_BRAND_ID_TAG)
     private Long brandId;
 
     public Date getDate() {

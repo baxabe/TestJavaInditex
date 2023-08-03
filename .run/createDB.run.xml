@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="createDB" type="DatabaseScript" editBeforeRun="true">
+    <script-file value="$PROJECT_DIR$/src/main/resources/db/h2/init/create.sql" />
+    <script-file value="$PROJECT_DIR$/src/main/resources/db/h2/migration/V1.01__create_tables_with_exaple_data.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="7dc47b29-4c4b-4ca3-913a-9c2e849fac0b" namespace="database/&quot;INDI_TEST_DB&quot;/schema/&quot;INDI_SCHEMA&quot;" />
+    <method v="2" />
+  </configuration>
+</component>
