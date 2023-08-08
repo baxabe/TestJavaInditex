@@ -12,51 +12,59 @@
     <packaging>jar</packaging>
     <name>TestJavaInditex</name>
     <description>TestJava app for Inditex application</description>
+    <url>https://github.com/baxabe/TestJavaInditex</url>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version> <!-- lookup parent from repository -->
-    </parent>
+    <licenses>
+        <license>
+            <name>MIT Licence</name>
+            <url>https://mit-license.org/</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Xabier</name>
+            <email>xabier@baxabe.com</email>
+            <organization>baxabe</organization>
+            <organizationUrl>https://baxabe.com</organizationUrl>
+        </developer>
+    </developers>
 
     <properties>
+        <maven.plugin.validation>VERBOSE</maven.plugin.validation>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <yaml.version>2.0</yaml.version>
         <springframework.boot.version>3.1.2</springframework.boot.version>
-        <fasterxml.jackson.datatype.version>2.15.2</fasterxml.jackson.datatype.version>
-        <h2database.version>2.1.214</h2database.version>
+        <fasterxml.jackson.version>2.15.2</fasterxml.jackson.version>
+        <h2database.version>2.2.220</h2database.version>
         <hibernate.orm.version>6.2.7.Final</hibernate.orm.version>
         <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
-        <flywaydb.version>9.21.0</flywaydb.version>
+        <flywaydb.version>9.21.1</flywaydb.version>
         <springdoc.version>1.7.0</springdoc.version>
+        <opentest4j.version>1.3.0</opentest4j.version>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
-        <logstash-logback.version>7.4</logstash-logback.version>
+        <junit.platform.version>1.10.0</junit.platform.version>
+        <mockito.version>5.4.0</mockito.version>
+        <logstash.logback.version>7.4</logstash.logback.version>
+        <swagger.version>2.2.15</swagger.version>
         <springframework.cloud.version>2022.0.3</springframework.cloud.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>${yaml.version}</version>
+            <groupId>org.opentest4j</groupId>
+            <artifactId>opentest4j</artifactId>
+            <version>${opentest4j.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springframework.boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.yaml</groupId>
-                    <artifactId>snakeyaml</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>${springframework.boot.version}</version>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,42 +75,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <version>${springframework.boot.version}</version>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <version>${springframework.boot.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springframework.boot.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${fasterxml.jackson.datatype.version}</version>
+            <version>${fasterxml.jackson.version}</version>
         </dependency>
         <dependency>
-            <!-- This dependency has security warning. -->
+            <!-- This dependency has security warnings related to web-based admin console. -->
             <!-- Details: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45868 -->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2database.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.orm.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate.validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -110,36 +99,155 @@
             <version>${flywaydb.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${fasterxml.jackson.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${springframework.boot.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-common</artifactId>
+            <version>${springdoc.version}</version>
+            <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>${logstash-logback.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webmvc-core</artifactId>
+            <version>${springdoc.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${springframework.boot.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <!-- Override snakeyaml provided by Spring Boot -->
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${yaml.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Override swagger-annotations provided by Spring Boot -->
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Override swagger-models provided by Spring Boot -->
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Override swagger-core provided by Spring Boot -->
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${swagger.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <!-- Override hibernate-core provided by Spring Boot -->
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.orm.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Override hibernate-validator provided by Spring Boot -->
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Override junit-jupiter-api provided by Spring Boot -->
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Override junit-jupiter-engine provided by Spring Boot -->
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Override junit-jupiter-params provided by Spring Boot -->
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Override junit-jupiter provided by Spring Boot -->
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Override junit-platform-engine provided by Spring Boot -->
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-engine</artifactId>
+                <version>${junit.platform.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Override mockito-junit-jupiter provided by Spring Boot -->
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springframework.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${springframework.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
