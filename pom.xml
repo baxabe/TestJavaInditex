@@ -87,8 +87,6 @@
             <version>${fasterxml.jackson.version}</version>
         </dependency>
         <dependency>
-            <!-- This dependency has security warnings related to web-based admin console. -->
-            <!-- Details: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45868 -->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2database.version}</version>
